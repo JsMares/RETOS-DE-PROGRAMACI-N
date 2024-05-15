@@ -1,0 +1,25 @@
+// Leer los gastos de cada mes desde la consola.
+// Calcular el gasto total.
+// Imprimir los gastos por mes y el total.
+
+const readLine = require('readline');
+
+const rl = readLine.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+const obtenerDatos = (mes, gastos) => {
+    let meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    
+    rl.question(`Ingrese el gasto del mes de ${meses[mes]}: `, gasto => {
+        gastos.push(Number(gasto));
+        
+        if (mes === meses.length - 1) {
+            rl.close();
+            obtenerGastos(meses, gastos);
+        } else {
+            obtenerDatos(mes + 1, gastos);
+        }
+    });
+}
