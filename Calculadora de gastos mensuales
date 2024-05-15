@@ -23,3 +23,23 @@ const obtenerDatos = (mes, gastos) => {
         }
     });
 }
+
+const obtenerGastos = (meses, gastos) => {
+    for (let i = 0; i < meses.length; i++) {
+        console.log(`El gasto del mes de ${meses[i]} fue de $${gastos[i]}`);
+    }
+    
+    calcularGastoTotal(gastos);
+}
+
+const calcularGastoTotal = (gastos) => {
+    let suma = 0;
+    
+    for (let i = 0; i < gastos.length; i++) {
+        suma += gastos[i];
+    }
+    
+    console.log(`El total de gastos durante el año fue de: ${suma}`);
+}
+
+obtenerDatos(0, []);
